@@ -23,12 +23,11 @@
   --radius:18px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--text);
   font-family:"Nunito",system-ui,sans-serif;
   overflow-x:hidden;
-  overflow-x:clip;
   -webkit-font-smoothing:antialiased;
 }
 ::selection{background:var(--pink);color:#fff}
@@ -74,6 +73,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
      x=0 and the hamburger flush at the right edge. Give the bar
      side padding on small screens; desktop is untouched. */
   .nav{padding:14px 18px}
+  /* Phone only: clip horizontal overflow so the swinging panel,
+     hidden reveal elements and glows can't widen the page.
+     These rules MUST stay inside this media query. On desktop,
+     overflow-x:clip forces the computed overflow-y to clip too,
+     which cut the hanging hero panel (the 5866dec regression). */
+  html,body{overflow-x:hidden;overflow-x:clip}
+  .hero{overflow-x:clip}
+  section{overflow-x:clip}
   .nav-links{display:none}
   .nav-hire{display:none}
   .nav-toggle{display:inline-flex}
@@ -84,10 +91,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
   .nav-menu .nav-menu-hire:hover{color:#fff;background:var(--pink)}
 }
 
-/* HERO: overflow-x:clip keeps the hanging panel's fall/swing
-   (up to -18deg around the top-right pin) from ever widening the
-   page on phones. */
-.hero{padding:64px 0 30px;overflow-x:clip}
+/* HERO: no overflow clipping here. overflow-x:clip also forces the
+   computed overflow-y to clip, which cut the hanging panel's swung
+   corner on desktop (5866dec regression). The phone-only clip
+   lives inside the max-width:760px media query above. */
+.hero{padding:64px 0 30px}
 .eyebrow{font-family:"IBM Plex Mono";font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--pink),var(--cyan))}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start;margin-top:18px}
@@ -126,10 +134,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
 .marquee-track i{font-style:normal;color:var(--pink)}
 @keyframes scrollX{to{transform:translateX(-50%)}}
 
-/* sections: overflow-x:clip stops hidden below-fold reveal
-   elements (e.g. experience cards sitting at translateX(-56px)
-   until scrolled into view) from widening the page on phones. */
-section{padding:72px 0 8px;overflow-x:clip}
+/* sections: no overflow clipping here (see the HERO note above:
+   overflow-x:clip also clips vertically and cut the hero panel
+   on desktop). The phone-only clip lives in the 760px query. */
+section{padding:72px 0 8px}
 .sec-head{max-width:680px}
 .sec-head h2{font-size:clamp(32px,5vw,46px);font-weight:800;margin-top:12px}
 .sec-head h2 em{font-style:normal;color:var(--pink)}
