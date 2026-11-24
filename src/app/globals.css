@@ -46,7 +46,7 @@ img,svg{display:block;max-width:100%}
 header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-badge{width:42px;height:42px;border-radius:12px;background:var(--pink);display:grid;place-items:center;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:800;font-size:19px;letter-spacing:-.05em;color:#fff;box-shadow:0 8px 24px rgba(237,33,144,.35)}
+.logo-badge{width:46px;height:46px;border-radius:12px;background:var(--pink);display:flex;align-items:center;justify-content:center;white-space:nowrap;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:800;font-size:17px;letter-spacing:-.05em;color:#fff;box-shadow:0 8px 24px rgba(237,33,144,.35)}
 .logo-badge .logo-s{font-size:.8em;margin-left:-.04em}
 .nav-links{display:flex;gap:6px;flex-wrap:wrap}
 .nav-links a{text-decoration:none;font-weight:700;font-size:14px;color:var(--muted);padding:10px 14px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
@@ -255,7 +255,8 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;colo
    The panel pivots around the thread's top end (the pin), so the
    corner never drifts off the pin. */
 .hang-wrap{position:relative}
-.hang{position:relative;padding-top:40px;transform-origin:100% 0;animation:hangFall 2.8s both,hangSway 6s ease-in-out 2.8s infinite}
+.hang{position:relative;padding-top:40px;transform-origin:100% 0;animation:hangFall 2.8s both}
+.hang.sway-on{animation:hangSway 6s ease-in-out infinite}
 .hang .thread{position:absolute;top:0;right:-1px;width:2px;height:40px;background:linear-gradient(#FF8AC2,var(--pink));box-shadow:0 0 8px rgba(237,33,144,.55);border-radius:2px}
 @keyframes hangFall{
   0%{opacity:0;transform:translateY(-110vh) rotate(-7deg);animation-timing-function:cubic-bezier(.55,.06,.68,.19)}
@@ -276,5 +277,5 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;colo
 .stat p{margin:5px 0 0;font-size:13px;color:var(--muted);line-height:1.55}
 .tl-item,.tl-item h3,.tl-item h4,.tl-item p{text-align:left}
 @media(prefers-reduced-motion:reduce){
-  .hang{animation:none;transform:rotate(-4.6deg)}
+  .hang,.hang.sway-on{animation:none;transform:rotate(-4.6deg)}
 }

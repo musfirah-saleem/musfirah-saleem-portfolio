@@ -13,6 +13,17 @@ const ROLES = [
 export default function Hero() {
   const [typed, setTyped] = useState("");
   const [shownLines, setShownLines] = useState(0);
+  const [swaying, setSwaying] = useState(false);
+
+  /* The gentle infinite sway starts ONLY after the fall + decaying
+     swings (hangFall) have finished, via animationend, so the two
+     animations never overlap on the same transform and the swings
+     cannot be overridden. A 3s timeout is a fallback in case the
+     event is ever missed; setting the same state twice is a no-op. */
+  useEffect(() => {
+    const t = setTimeout(() => setSwaying(true), 3000);
+    return () => clearTimeout(t);
+  }, []);
 
   /* Role typewriter: same state machine as the preview script:
      start after 1800ms; type 68ms/char, hold 1600ms at full word,
@@ -121,7 +132,12 @@ export default function Hero() {
         </div>
         <div className="hang-wrap">
           <span className="pin" aria-hidden="true"></span>
-          <div className="hang">
+          <div
+            className={`hang${swaying ? " sway-on" : ""}`}
+            onAnimationEnd={(e) => {
+              if (e.animationName === "hangFall") setSwaying(true);
+            }}
+          >
           <span className="thread" aria-hidden="true"></span>
           <div className="codewin reveal in">
             <div className="codewin-head">
