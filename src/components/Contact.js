@@ -92,7 +92,7 @@ export default function Contact() {
               <div className="cform-row">
                 <div className="field">
                   <label htmlFor="cfName">Name</label>
-                  <input id="cfName" name="name" type="text" autoComplete="name" required />
+                  <input id="cfName" name="name" type="text" autoComplete="name" placeholder="Your name" required />
                 </div>
                 <div className="field">
                   <label htmlFor="cfEmail">Email</label>
@@ -101,13 +101,14 @@ export default function Contact() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    placeholder="you@example.com"
                     required
                   />
                 </div>
               </div>
               <div className="field">
                 <label htmlFor="cfMsg">Description</label>
-                <textarea id="cfMsg" name="description" rows="4" required></textarea>
+                <textarea id="cfMsg" name="description" rows="4" placeholder="Tell me about the role or project…" required></textarea>
               </div>
               <div className="cform-actions">
                 <button
