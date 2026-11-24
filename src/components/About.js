@@ -1,74 +1,35 @@
-import Reveal, { SectionHeading } from "@/components/Reveal";
-import { profile } from "@/data/portfolio";
-
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
-      <SectionHeading eyebrow="About Me" title="Who I am &" highlight="what I do" />
-
-      <div className="mt-10 grid gap-8 lg:grid-cols-5">
-        {/* Intro paragraph — verbatim CV intro */}
-        <Reveal className="lg:col-span-3">
-          <p className="text-lg leading-relaxed text-white/85">{profile.intro}</p>
-          <p className="mt-5 leading-relaxed text-white/65">{profile.about}</p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="mailto:musfi606@gmail.com?subject=Hello%20Musfirah"
-              className="rounded-full bg-pink px-6 py-3 font-extrabold text-white transition-colors hover:bg-pink-dark"
-            >
-              Email Me
-            </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-white/25 px-6 py-3 font-extrabold text-white transition-colors hover:border-pink hover:text-pink"
-            >
-              GitHub ↗
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-white/25 px-6 py-3 font-extrabold text-white transition-colors hover:border-cyan hover:text-cyan"
-            >
-              LinkedIn ↗
-            </a>
+    <section id="about">
+      <div className="sec-head reveal">
+        <p className="eyebrow">01 — About</p>
+        <h2 className="fallwords">
+          <span className="fw" style={{"--d": "0s"}}>Full-stack,</span>{" "}
+          <span className="fw" style={{"--d": ".35s"}}><em>end</em></span>{" "}
+          <span className="fw" style={{"--d": ".65s"}}><em>to</em></span>{" "}
+          <span className="fw" style={{"--d": ".95s"}}><em>end</em></span>
+        </h2>
+        <div className="divider"></div>
+      </div>
+      <div className="about-grid">
+        <div className="card pink-top reveal">
+          <h3>What I do</h3>
+          <p>I design and build complete web products — from the database schema to the pixel on screen. My day-to-day is React and Next.js on the front, Node.js and Express APIs in the middle, and MongoDB with Mongoose underneath.</p>
+          <p>At Egora I work on a live POS platform used by real merchants, including the X-Pay payment gateway and its webhooks — the kind of code where a bug means someone&apos;s till stops working, so it has to be right.</p>
+        </div>
+        <div className="card cyan-top reveal d1">
+          <h3>Beyond the MERN core</h3>
+          <p>I&apos;ve shipped blockchain/Web3 frontends for a UK company, AI chatbot products that talk to customers in Urdu, English and Roman Urdu, and payment flows with both X-Pay and Stripe.</p>
+          <div className="chips">
+            <span className="chip">POS Systems</span>
+            <span className="chip c">E-commerce</span>
+            <span className="chip">AI Chatbots</span>
+            <span className="chip c">Web3 Frontend</span>
+            <span className="chip">Payment Webhooks</span>
+            <span className="chip c">CRM Platforms</span>
           </div>
-        </Reveal>
-
-        {/* Quick facts card — white panel, pink top border (BGRM style) */}
-        <Reveal delay={0.15} className="lg:col-span-2">
-          <div className="overflow-hidden rounded-2xl border-t-[6px] border-pink bg-panel text-body shadow-card">
-            <div className="p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-cyan">Profile</p>
-              <dl className="mt-4 space-y-4 text-sm">
-                <div className="flex justify-between gap-4 border-b border-black/5 pb-3">
-                  <dt className="font-bold text-muted">Name</dt>
-                  <dd className="font-extrabold">{profile.name}</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-black/5 pb-3">
-                  <dt className="font-bold text-muted">Role</dt>
-                  <dd className="font-extrabold">{profile.role}</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-black/5 pb-3">
-                  <dt className="font-bold text-muted">Based in</dt>
-                  <dd className="font-extrabold">{profile.location}</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-black/5 pb-3">
-                  <dt className="font-bold text-muted">Experience</dt>
-                  <dd className="font-extrabold">4+ years</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="font-bold text-muted">Focus</dt>
-                  <dd className="text-right font-extrabold">POS · E-commerce · AI apps</dd>
-                </div>
-              </dl>
-            </div>
-            <div className="gradient-divider h-1.5 w-full" />
-          </div>
-        </Reveal>
+          <p style={{marginTop: "14px"}}>BS Information Technology — University of Education, Vehari (2019–2023).</p>
+        </div>
       </div>
     </section>
   );

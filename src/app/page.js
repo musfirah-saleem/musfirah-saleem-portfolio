@@ -1,27 +1,31 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import Architecture from "@/components/Architecture";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
+    <>
+      <div className="glow-pink"></div>
+      <div className="glow-cyan"></div>
       <Navbar />
-      <Hero />
-      <About />
-      <Architecture />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-      <Marquee />
-      <Footer />
-    </main>
+      <main id="top" className="wrap">
+        <Hero />
+        <Marquee />
+        <About />
+        <Architecture />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

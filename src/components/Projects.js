@@ -1,134 +1,95 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
-import { SectionHeading } from "@/components/Reveal";
-import { projects } from "@/data/portfolio";
-
-const gridVariants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.18 } },
-};
-
-/**
- * Flip entrance — each card flips in with a FULL 180° rotateY turn when
- * the Projects section scrolls into view, so the spin is unmistakable.
- * Starts on the back face (hidden), sweeps through edge-on, then lands
- * flat. 1.25s + 0.18s stagger — a middle speed. The grid only triggers
- * once half of it is actually in view, so the flip never finishes
- * before she scrolls to it. Falls back to a plain fade under
- * prefers-reduced-motion.
- */
-function flipVariants(reduceMotion) {
-  return reduceMotion
-    ? {
-        hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { duration: 0.4 } },
-      }
-    : {
-        hidden: { opacity: 0, rotateY: -180 },
-        show: {
-          opacity: 1,
-          rotateY: 0,
-          transition: { duration: 1.25, ease: "easeInOut" },
-        },
-      };
-}
-
-function ProjectCard({ project, variants }) {
-  return (
-    <motion.article
-      variants={variants}
-      style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-[border-color,box-shadow] duration-300 hover:border-pink/50 hover:shadow-glowPink"
-    >
-      {/* Pink top border (BGRM card style) */}
-        <div className="h-1.5 w-full bg-pink transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-pink group-hover:to-cyan" />
-        <div className="flex flex-1 flex-col p-6">
-          <div className="flex items-start justify-between gap-3">
-            <span className="rounded-full bg-cyan/15 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wide text-cyan">
-              {project.tag}
-            </span>
-            {project.featured && (
-              <span className="rounded-full bg-pink/15 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wide text-pink">
-                Featured
-              </span>
-            )}
-          </div>
-          <h3 className="mt-4 font-display text-2xl font-extrabold text-white transition-colors group-hover:text-pink">
-            {project.name}
-          </h3>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-white/65">
-            {project.description}
-          </p>
-          <div className="mt-6 flex gap-3">
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-pink px-5 py-2 text-sm font-extrabold text-white transition-colors hover:bg-pink-dark"
-              >
-                View Project ↗
-              </a>
-            )}
-            {project.code && (
-              <a
-                href={project.code}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-white/25 px-5 py-2 text-sm font-extrabold text-white transition-colors hover:border-cyan hover:text-cyan"
-              >
-                Code ↗
-              </a>
-            )}
-          </div>
-        </div>
-    </motion.article>
-  );
-}
+const projects = [
+  {
+    tag: "AI · CRM · WhatsApp",
+    title: "Chatroot",
+    desc: "WhatsApp AI bot & CRM platform by DevEarth Solutions. The bot chats with customers in Urdu, English and Roman Urdu, backed by a full CRM with secure APIs and automated monthly-plan launches.",
+    stack: ["Next.js", "NestJS", "PostgreSQL", "OpenAI", "Baileys"],
+    url: "https://devearthsolutions.com/chatroot",
+    flip: "",
+  },
+  {
+    tag: "POS · Payments",
+    title: "Egora POS",
+    desc: "Point-of-sale system used by merchants at Egora — fast checkout flows in React/Redux, live inventory, and X-Pay payment processing with webhook-confirmed transactions.",
+    stack: ["React", "Redux", "Node.js", "MongoDB", "X-Pay"],
+    url: "https://venue.egora.pk",
+    flip: "d1",
+  },
+  {
+    tag: "Dashboard · Merchants",
+    title: "Egora Merchants",
+    desc: "The merchant side of Egora — dashboards for sales, products and payments, giving shop owners a clear view of their business in real time.",
+    stack: ["React", "Express", "Mongoose", "REST APIs"],
+    url: "https://merchants.egora.pk",
+    flip: "d2",
+  },
+  {
+    tag: "E-commerce",
+    title: "Fusion Store",
+    desc: "A full e-commerce storefront — product catalogue, cart and checkout built on the MERN stack with a clean, conversion-focused shopping experience.",
+    stack: ["MERN", "React", "Node.js", "MongoDB"],
+    url: "https://fusionstorebyms.netlify.app/",
+    flip: "",
+  },
+  {
+    tag: "AI Product",
+    title: "Pluto-AI",
+    desc: "An AI-powered web application exploring LLM integrations inside a modern React interface — prompt flows, streamed responses and a polished chat experience.",
+    stack: ["React", "LLM APIs", "Node.js"],
+    url: "https://call-center-01.netlify.app/",
+    flip: "d1",
+  },
+  {
+    tag: "Web3 · Frontend",
+    title: "Planet Bickram",
+    desc: "A Web3 project frontend from my time building blockchain interfaces — wallet connection, on-chain data display and a playful, immersive UI.",
+    stack: ["React", "Web3", "JavaScript"],
+    url: "https://planet-final-01.netlify.app/",
+    flip: "d2",
+  },
+  {
+    tag: "Blockchain · Web3",
+    title: "Block Factory",
+    desc: "Website for a blockchain development company — presenting its cryptocurrency and Web 3.0 services, from smart contracts and cryptotokens to ICO launches, with team and project showcases.",
+    stack: ["React", "JavaScript", "Web3"],
+    url: "https://block-factory.netlify.app",
+    flip: "",
+  },
+];
 
 export default function Projects() {
-  const reduceMotion = useReducedMotion();
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
-  const cardVariants = flipVariants(reduceMotion);
-
   return (
-    <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
-      <SectionHeading
-        eyebrow="Featured Projects"
-        title="Full-stack web &"
-        highlight="AI products"
-        sub="A curated selection of production work — POS platforms, e-commerce, AI bots and Web3."
-      />
-
-      {/* Featured — larger cards */}
-      <motion.div
-        variants={gridVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
-        style={{ perspective: 1200 }}
-        className="mt-10 grid gap-6 md:grid-cols-3"
-      >
-        {featured.map((project) => (
-          <ProjectCard key={project.name} project={project} variants={cardVariants} />
+    <section id="projects">
+      <div className="sec-head reveal">
+        <p className="eyebrow">05 — Featured Work</p>
+        <h2>
+          Projects that <em>shipped</em>
+        </h2>
+        <p>Real products — point-of-sale, commerce, AI and Web3 — not tutorial clones.</p>
+        <div className="divider"></div>
+      </div>
+      <div className="proj-grid">
+        {projects.map((project) => (
+          <article
+            key={project.title}
+            className={project.flip ? `proj flip ${project.flip}` : "proj flip"}
+          >
+            <div className="proj-body">
+              <span className="p-tag">{project.tag}</span>
+              <h3>{project.title}</h3>
+              <p>{project.desc}</p>
+              <div className="stack">
+                {project.stack.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+              <a className="plink" href={project.url} target="_blank" rel="noopener">
+                View project →
+              </a>
+            </div>
+          </article>
         ))}
-      </motion.div>
-
-      {/* Remaining projects */}
-      <motion.div
-        variants={gridVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
-        style={{ perspective: 1200 }}
-        className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {rest.map((project) => (
-          <ProjectCard key={project.name} project={project} variants={cardVariants} />
-        ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

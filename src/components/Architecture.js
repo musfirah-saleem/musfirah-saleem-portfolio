@@ -1,66 +1,50 @@
-import Reveal, { SectionHeading, WordDrop } from "@/components/Reveal";
-import { architecture } from "@/data/portfolio";
-
 export default function Architecture() {
   return (
-    <section id="architecture" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
-      <SectionHeading
-        eyebrow="How I Architect MERN Apps"
-        title="A layered, scalable"
-        highlight="approach"
-        sub="From React UI down to MongoDB — every layer owned, from responsive interfaces to REST APIs to database design."
-        dropWords
-      />
-
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {architecture.map((tier, i) => (
-          <Reveal key={tier.tier} delay={i * 0.12}>
-            <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1.5 hover:border-pink/50 hover:shadow-glowPink">
-                <div className="gradient-divider h-1 w-full opacity-80" />
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs uppercase tracking-[0.18em] text-cyan">
-                      {tier.tier}
-                    </span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink/15 font-display text-lg font-extrabold text-pink transition-transform duration-300 group-hover:scale-110">
-                      {tier.icon}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-display text-xl font-extrabold text-white">
-                    {tier.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-white/65">
-                    {tier.description}
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {tier.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white/10 px-3 py-1 font-mono text-[11px] font-semibold text-white/80"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-          </Reveal>
-        ))}
+    <section id="architecture">
+      <div className="sec-head reveal">
+        <p className="eyebrow">02 — How I Build</p>
+        <h2 className="fallwords">
+          <span className="fw" style={{"--d": "0s"}}>The</span>{" "}
+          <span className="fw" style={{"--d": ".45s"}}>MERN</span>{" "}
+          <span className="fw" style={{"--d": ".9s"}}><em>architecture</em></span>
+        </h2>
+        <p>Every product I build follows the same clean three-tier shape — a fast client, a well-organised API layer, and data that stays consistent.</p>
+        <div className="divider"></div>
       </div>
-
-      {/* Tier flow — Client → API → Data, words dropping from above */}
-      <Reveal delay={0.2}>
-        <p className="mt-10 text-center font-mono text-sm text-white/50">
-          <WordDrop text="Client →" className="font-bold text-pink" delay={0} />{" "}
-          <WordDrop text="API →" className="font-bold text-white" delay={0.3} />{" "}
-          <WordDrop text="Data" className="font-bold text-cyan" delay={0.6} />{" "}
-          <WordDrop
-            text="— one clean request path, end to end."
-            className="text-muted"
-            delay={0.9}
-          />
-        </p>
-      </Reveal>
+      <div className="arch">
+        <div className="arch-tier reveal">
+          <span className="tier-tag">Tier 01 · Client</span>
+          <h3>Frontend</h3>
+          <ul>
+            <li>React &amp; Next.js apps</li>
+            <li>Redux state management</li>
+            <li>Tailwind CSS &amp; Material UI</li>
+            <li>Responsive, animated UIs</li>
+          </ul>
+        </div>
+        <div className="arch-arrow"><span className="flow-dot"></span>→</div>
+        <div className="arch-tier reveal d1">
+          <span className="tier-tag">Tier 02 · API</span>
+          <h3>Backend</h3>
+          <ul>
+            <li>Node.js &amp; Express REST APIs</li>
+            <li>JWT auth &amp; rate limiting</li>
+            <li>Payment webhooks (X-Pay, Stripe)</li>
+            <li>AI / LLM service integrations</li>
+          </ul>
+        </div>
+        <div className="arch-arrow"><span className="flow-dot"></span>→</div>
+        <div className="arch-tier reveal d2">
+          <span className="tier-tag">Tier 03 · Data</span>
+          <h3>Database</h3>
+          <ul>
+            <li>MongoDB with Mongoose</li>
+            <li>Schema design &amp; indexing</li>
+            <li>Aggregation pipelines</li>
+            <li>Dockerised deployments</li>
+          </ul>
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,23 +1,19 @@
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
+import RevealInit from "@/components/RevealInit";
 
 export const metadata = {
   metadataBase: new URL("https://musfirah-saleem.vercel.app"),
-  title: "Musfirah Saleem | MERN Stack Developer",
+  title: "Musfirah Saleem — MERN Stack Developer",
   description:
-    "MERN Stack Developer with around 4+ years of experience building full-stack web applications with React and Next.js frontends, Node.js/Express REST APIs, MongoDB/Mongoose data modelling, payment gateway and webhook integrations (X-Pay, Stripe), and AI/LLM-powered features across e-commerce, POS/reservation and AI applications.",
+    "Musfirah Saleem — MERN Stack Developer based in Pakistan. Building POS, e-commerce and AI-powered web apps with React, Next.js, Node.js and MongoDB.",
   keywords: [
     "Musfirah Saleem",
     "MERN Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
+    "React",
+    "Next.js",
+    "Node.js",
     "MongoDB",
-    "Full Stack Developer Lahore",
-    "POS Developer",
-    "X-Pay",
-    "Stripe",
-    "AI LLM integrations",
+    "Portfolio",
   ],
   authors: [{ name: "Musfirah Saleem" }],
   creator: "Musfirah Saleem",
@@ -27,19 +23,19 @@ export const metadata = {
     locale: "en_US",
     url: "https://musfirah-saleem.vercel.app",
     siteName: "Musfirah Saleem — MERN Stack Developer",
-    title: "Musfirah Saleem | MERN Stack Developer",
+    title: "Musfirah Saleem — MERN Stack Developer",
     description:
-      "MERN Stack Developer building scalable full-stack web apps, POS platforms and AI-powered products with React, Next.js, Node.js and MongoDB.",
+      "Building POS, e-commerce & AI-powered apps with the MERN stack.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Musfirah Saleem | MERN Stack Developer",
+    title: "Musfirah Saleem — MERN Stack Developer",
     description:
-      "MERN Stack Developer building scalable full-stack web apps, POS platforms and AI-powered products with React, Next.js, Node.js and MongoDB.",
+      "Building POS, e-commerce & AI-powered apps with the MERN stack.",
   },
 };
 
-// JSON-LD Person schema for search engines
+// JSON-LD Person schema for search engines (email left as-is per brief)
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -80,7 +76,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* BGRM theme fonts: Baloo 2 (headings), Nunito (body), IBM Plex Mono (code/eyebrow) */}
+        {/* BGRM theme fonts: Baloo 2 (headings), Nunito (body), IBM Plex Mono (code/eyebrow) — same set as the preview */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -88,16 +84,24 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
+        />
+        {/* Marks the document as JS-enabled before first paint. The
+            reveal/fallwords/flip hidden start states only apply under
+            html.js, so content is visible by default without JS. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="page-glow font-sans antialiased">
-        <SmoothScroll />
+      <body className="antialiased">
+        <RevealInit />
         {children}
       </body>
     </html>
