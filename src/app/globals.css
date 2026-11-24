@@ -112,30 +112,36 @@ section{padding:72px 0 8px}
 
 /* reveal animation — Karanjot / Framer Motion feel.
    Hidden start states ONLY under html.js: without JS (or if the
-   reveal script never runs) everything is visible by default. */
+   reveal script never runs) everything is visible by default.
+   SPECIFICITY RULE (do not break): every `.in` visible-state rule
+   MUST carry the same `html.js` prefix as its hidden-state rule.
+   `html.js .reveal` is (0,0,2,1) and beats plain `.reveal.in`
+   (0,0,2,0), so an unprefixed `.in` rule can NEVER un-hide an
+   element — that was the live bug (everything below the hero
+   stayed invisible even after `.in` was added). */
 html.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-.reveal.in{opacity:1;transform:none}
+html.js .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.marquee-track{animation:none}.caret{animation:none}}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}.marquee-track{animation:none}.caret{animation:none}}
 
 /* ---- requested motion: falling words, left slide-in, flip-in, on-screen skill fill ---- */
 .wfall{display:inline-block;opacity:0;animation:wordFall .7s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s)}
 @keyframes wordFall{0%{opacity:0;transform:translateY(-88px) rotate(-6deg)}55%{opacity:1}100%{opacity:1;transform:translateY(0) rotate(0deg)}}
 html.js .fallwords .fw{display:inline-block;opacity:0;transform:translateY(-76px)}
-.fallwords.in .fw{animation:wordFall 1.45s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s)}
+html.js .fallwords.in .fw{animation:wordFall 1.45s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s)}
 html.js .reveal.from-left{transform:translateX(-56px)}
-.reveal.from-left.in{transform:translateX(0)}
+html.js .reveal.from-left.in{transform:translateX(0)}
 .proj-grid{perspective:1500px}
 html.js .proj.flip{opacity:0;transform:rotateY(-94deg) rotateX(6deg) translateY(30px) scale(.94);transform-origin:center center;backface-visibility:hidden;transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,1,.36,1),box-shadow .3s}
 .proj.flip.d1{transition-delay:.22s}.proj.flip.d2{transition-delay:.44s}
-.proj.flip.in{opacity:1;transform:rotateY(0deg) rotateX(0deg) translateY(0) scale(1)}
-.proj.flip.in:hover{transition-delay:0s;transform:translateY(-6px);box-shadow:0 24px 44px rgba(0,0,0,.45)}
+html.js .proj.flip.in{opacity:1;transform:rotateY(0deg) rotateX(0deg) translateY(0) scale(1)}
+html.js .proj.flip.in:hover{transition-delay:0s;transform:translateY(-6px);box-shadow:0 24px 44px rgba(0,0,0,.45)}
 @media(prefers-reduced-motion:reduce){
   .wfall{animation:none;opacity:1}
-  .fallwords .fw{opacity:1;transform:none}
-  .fallwords.in .fw{animation:none}
-  .proj.flip{opacity:1;transform:none;transition:none}
-  .reveal.from-left{transform:none}
+  html.js .fallwords .fw{opacity:1;transform:none}
+  html.js .fallwords.in .fw{animation:none}
+  html.js .proj.flip{opacity:1;transform:none;transition:none}
+  html.js .reveal.from-left{transform:none}
 }
 @media print{
   .reveal,.proj.flip,.fallwords .fw{opacity:1!important;transform:none!important}
@@ -162,7 +168,9 @@ html.js .proj.flip{opacity:0;transform:rotateY(-94deg) rotateX(6deg) translateY(
 .arch-tier::after{content:"";position:absolute;inset:auto -30% -60% auto;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,var(--pink-soft),transparent 70%)}
 .arch-tier .tier-tag{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
 .arch-tier h3{font-size:24px;margin:8px 0}
-.arch-tier ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.9;font-size:15px}
+/* "•" bullets like the preview: Tailwind's preflight resets ul to
+   list-style:none, so restore the disc markers explicitly. */
+.arch-tier ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.9;font-size:15px;list-style:disc}
 .arch-arrow{display:grid;place-items:center;color:var(--pink);font-size:26px;font-weight:800}
 .flow-dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:1}}
