@@ -28,7 +28,7 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="nav-actions">
-          <a className="btn btn-pink btn-small" href="#contact">
+          <a className="btn btn-pink btn-small nav-hire" href="#contact">
             Hire Me
           </a>
           <button
@@ -50,6 +50,13 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          <a
+            className="btn btn-pink nav-menu-hire"
+            href="#contact"
+            onClick={() => setOpen(false)}
+          >
+            Hire Me
+          </a>
         </nav>
       )}
     </header>
