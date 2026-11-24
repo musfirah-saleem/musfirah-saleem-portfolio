@@ -1,4 +1,17 @@
+"use client";
+
+import { useState } from "react";
+
+const LINKS = [
+  { href: "#about", label: "About" },
+  { href: "#architecture", label: "Architecture" },
+  { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+];
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
     <header>
       <div className="wrap nav">
@@ -8,16 +21,37 @@ export default function Navbar() {
           </span>
         </a>
         <nav className="nav-links" aria-label="Main">
-          <a href="#about">About</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
+          {LINKS.map((l) => (
+            <a key={l.href} href={l.href}>
+              {l.label}
+            </a>
+          ))}
         </nav>
-        <a className="btn btn-pink btn-small" href="#contact">
-          Hire Me
-        </a>
+        <div className="nav-actions">
+          <a className="btn btn-pink btn-small" href="#contact">
+            Hire Me
+          </a>
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span aria-hidden="true">{open ? "✕" : "☰"}</span>
+          </button>
+        </div>
       </div>
+      {open && (
+        <nav id="mobile-menu" className="nav-menu" aria-label="Mobile">
+          {LINKS.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
