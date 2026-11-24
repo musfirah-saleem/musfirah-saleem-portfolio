@@ -18,10 +18,10 @@ export default function Hero() {
   /* The gentle infinite sway starts ONLY after the fall + decaying
      swings (hangFall) have finished, via animationend, so the two
      animations never overlap on the same transform and the swings
-     cannot be overridden. A 3s timeout is a fallback in case the
+     cannot be overridden. A 4.1s timeout is a fallback in case the
      event is ever missed; setting the same state twice is a no-op. */
   useEffect(() => {
-    const t = setTimeout(() => setSwaying(true), 3000);
+    const t = setTimeout(() => setSwaying(true), 4100);
     return () => clearTimeout(t);
   }, []);
 
@@ -138,7 +138,21 @@ export default function Hero() {
               if (e.animationName === "hangFall") setSwaying(true);
             }}
           >
-          <span className="thread" aria-hidden="true"></span>
+          <svg className="thread" aria-hidden="true" viewBox="0 0 10 40">
+            <defs>
+              <linearGradient id="threadGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#FF8AC2" />
+                <stop offset="1" stopColor="#ED2190" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M5 0 C 1 8, 9 14, 5 20 C 1 26, 9 32, 5 40"
+              fill="none"
+              stroke="url(#threadGrad)"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
           <div className="codewin reveal in">
             <div className="codewin-head">
               <span className="dot r"></span>
