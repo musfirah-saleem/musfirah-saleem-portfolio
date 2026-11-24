@@ -119,8 +119,9 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="hang">
+        <div className="hang-wrap">
           <span className="pin" aria-hidden="true"></span>
+          <div className="hang">
           <div className="codewin reveal in">
             <div className="codewin-head">
               <span className="dot r"></span>
@@ -174,6 +175,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

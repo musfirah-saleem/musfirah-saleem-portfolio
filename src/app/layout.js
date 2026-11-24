@@ -4,6 +4,7 @@ import RevealInit from "@/components/RevealInit";
 export const metadata = {
   metadataBase: new URL("https://musfirah-saleem.vercel.app"),
   title: "Musfirah Saleem | MERN Stack Developer",
+  icons: { icon: "/favicon.svg" },
   description:
     "Musfirah Saleem | MERN Stack Developer based in Pakistan. Building POS, e-commerce and AI-powered web apps with React, Next.js, Node.js and MongoDB.",
   keywords: [

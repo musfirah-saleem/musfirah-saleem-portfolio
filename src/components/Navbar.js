@@ -3,11 +3,7 @@ export default function Navbar() {
     <header>
       <div className="wrap nav">
         <a className="logo" href="#top" aria-label="Musfirah Saleem home">
-          <span className="logo-badge">M</span>
-          <span className="logo-text">
-            <b>Musfirah Saleem</b>
-            <span>MERN Stack Developer</span>
-          </span>
+          <span className="logo-badge">MS</span>
         </a>
         <nav className="nav-links" aria-label="Main">
           <a href="#about">About</a>
