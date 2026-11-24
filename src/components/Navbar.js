@@ -3,7 +3,9 @@ export default function Navbar() {
     <header>
       <div className="wrap nav">
         <a className="logo" href="#top" aria-label="Musfirah Saleem home">
-          <span className="logo-badge">MS</span>
+          <span className="logo-badge">
+            M<span className="logo-s">S</span>
+          </span>
         </a>
         <nav className="nav-links" aria-label="Main">
           <a href="#about">About</a>

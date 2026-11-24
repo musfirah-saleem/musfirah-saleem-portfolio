@@ -122,6 +122,7 @@ export default function Hero() {
         <div className="hang-wrap">
           <span className="pin" aria-hidden="true"></span>
           <div className="hang">
+          <span className="thread" aria-hidden="true"></span>
           <div className="codewin reveal in">
             <div className="codewin-head">
               <span className="dot r"></span>
