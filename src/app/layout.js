@@ -3,9 +3,9 @@ import RevealInit from "@/components/RevealInit";
 
 export const metadata = {
   metadataBase: new URL("https://musfirah-saleem.vercel.app"),
-  title: "Musfirah Saleem — MERN Stack Developer",
+  title: "Musfirah Saleem | MERN Stack Developer",
   description:
-    "Musfirah Saleem — MERN Stack Developer based in Pakistan. Building POS, e-commerce and AI-powered web apps with React, Next.js, Node.js and MongoDB.",
+    "Musfirah Saleem | MERN Stack Developer based in Pakistan. Building POS, e-commerce and AI-powered web apps with React, Next.js, Node.js and MongoDB.",
   keywords: [
     "Musfirah Saleem",
     "MERN Stack Developer",
@@ -22,14 +22,14 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://musfirah-saleem.vercel.app",
-    siteName: "Musfirah Saleem — MERN Stack Developer",
-    title: "Musfirah Saleem — MERN Stack Developer",
+    siteName: "Musfirah Saleem | MERN Stack Developer",
+    title: "Musfirah Saleem | MERN Stack Developer",
     description:
       "Building POS, e-commerce & AI-powered apps with the MERN stack.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Musfirah Saleem — MERN Stack Developer",
+    title: "Musfirah Saleem | MERN Stack Developer",
     description:
       "Building POS, e-commerce & AI-powered apps with the MERN stack.",
   },
@@ -76,7 +76,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* BGRM theme fonts: Baloo 2 (headings), Nunito (body), IBM Plex Mono (code/eyebrow) — same set as the preview */}
+        {/* BGRM theme fonts: Baloo 2 (headings), Nunito (body), IBM Plex Mono (code/eyebrow) · same set as the preview */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

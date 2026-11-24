@@ -81,7 +81,7 @@ export default function Skills() {
   return (
     <section id="skills" ref={sectionRef}>
       <div className="sec-head reveal">
-        <p className="eyebrow">03 — Skills</p>
+        <p className="eyebrow">03 · Skills</p>
         <h2 className="fallwords">
           <span className="fw" style={{ "--d": "0s" }}>
             Skills

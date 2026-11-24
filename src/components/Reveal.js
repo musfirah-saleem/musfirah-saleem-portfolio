@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-/** Shared scroll-reveal wrapper — fades + slides content in on scroll. */
+/** Shared scroll-reveal wrapper: fades + slides content in on scroll. */
 export default function Reveal({ children, delay = 0, className = "" }) {
   return (
     <motion.div
@@ -18,7 +18,7 @@ export default function Reveal({ children, delay = 0, className = "" }) {
 }
 
 /**
- * Word-drop — each word falls in from above, one after another,
+ * Word-drop: each word falls in from above, one after another,
  * when the heading scrolls into view. Slow on purpose (0.9s per word,
  * 0.18s stagger) so the drop is clearly visible. Disabled under
  * prefers-reduced-motion (words render statically).

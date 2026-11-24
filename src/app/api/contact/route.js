@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
-// POST /api/contact — sends the contact form to Musfirah's inbox.
-// SMTP settings come from environment variables only — no credentials
+// POST /api/contact: sends the contact form to Musfirah's inbox.
+// SMTP settings come from environment variables only, no credentials
 // are stored in this file. See README.md ("Contact form email").
 //
 // Required env vars:
@@ -21,7 +21,7 @@ export async function POST(request) {
   try {
     data = await request.json();
   } catch {
-    return Response.json({ ok: false, error: "Invalid request — expected JSON." }, { status: 400 });
+    return Response.json({ ok: false, error: "Invalid request: expected JSON." }, { status: 400 });
   }
 
   const name = typeof data.name === "string" ? data.name.trim() : "";
@@ -73,7 +73,7 @@ export async function POST(request) {
   } catch (err) {
     console.error("Contact form email failed:", err);
     return Response.json(
-      { ok: false, error: "Could not send your message right now — please try again or email musfi606@gmail.com directly." },
+      { ok: false, error: "Could not send your message right now. Please try again or email musfi606@gmail.com directly." },
       { status: 500 }
     );
   }

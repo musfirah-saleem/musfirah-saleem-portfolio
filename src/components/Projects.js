@@ -10,7 +10,7 @@ const projects = [
   {
     tag: "POS · Payments",
     title: "Egora POS",
-    desc: "Point-of-sale system used by merchants at Egora — fast checkout flows in React/Redux, live inventory, and X-Pay payment processing with webhook-confirmed transactions.",
+    desc: "Point-of-sale system used by merchants at Egora, fast checkout flows in React/Redux, live inventory, and X-Pay payment processing with webhook-confirmed transactions.",
     stack: ["React", "Redux", "Node.js", "MongoDB", "X-Pay"],
     url: "https://venue.egora.pk",
     flip: "d1",
@@ -18,7 +18,7 @@ const projects = [
   {
     tag: "Dashboard · Merchants",
     title: "Egora Merchants",
-    desc: "The merchant side of Egora — dashboards for sales, products and payments, giving shop owners a clear view of their business in real time.",
+    desc: "The merchant side of Egora, dashboards for sales, products and payments, giving shop owners a clear view of their business in real time.",
     stack: ["React", "Express", "Mongoose", "REST APIs"],
     url: "https://merchants.egora.pk",
     flip: "d2",
@@ -26,7 +26,7 @@ const projects = [
   {
     tag: "E-commerce",
     title: "Fusion Store",
-    desc: "A full e-commerce storefront — product catalogue, cart and checkout built on the MERN stack with a clean, conversion-focused shopping experience.",
+    desc: "A full e-commerce storefront, product catalogue, cart and checkout built on the MERN stack with a clean, conversion-focused shopping experience.",
     stack: ["MERN", "React", "Node.js", "MongoDB"],
     url: "https://fusionstorebyms.netlify.app/",
     flip: "",
@@ -34,7 +34,7 @@ const projects = [
   {
     tag: "AI Product",
     title: "Pluto-AI",
-    desc: "An AI-powered web application exploring LLM integrations inside a modern React interface — prompt flows, streamed responses and a polished chat experience.",
+    desc: "An AI-powered web application exploring LLM integrations inside a modern React interface, prompt flows, streamed responses and a polished chat experience.",
     stack: ["React", "LLM APIs", "Node.js"],
     url: "https://call-center-01.netlify.app/",
     flip: "d1",
@@ -42,7 +42,7 @@ const projects = [
   {
     tag: "Web3 · Frontend",
     title: "Planet Bickram",
-    desc: "A Web3 project frontend from my time building blockchain interfaces — wallet connection, on-chain data display and a playful, immersive UI.",
+    desc: "A Web3 project frontend from my time building blockchain interfaces, wallet connection, on-chain data display and a playful, immersive UI.",
     stack: ["React", "Web3", "JavaScript"],
     url: "https://planet-final-01.netlify.app/",
     flip: "d2",
@@ -50,7 +50,7 @@ const projects = [
   {
     tag: "Blockchain · Web3",
     title: "Block Factory",
-    desc: "Website for a blockchain development company — presenting its cryptocurrency and Web 3.0 services, from smart contracts and cryptotokens to ICO launches, with team and project showcases.",
+    desc: "Website for a blockchain development company, presenting its cryptocurrency and Web 3.0 services, from smart contracts and cryptotokens to ICO launches, with team and project showcases.",
     stack: ["React", "JavaScript", "Web3"],
     url: "https://block-factory.netlify.app",
     flip: "",
@@ -61,11 +61,11 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="sec-head reveal">
-        <p className="eyebrow">05 — Featured Work</p>
+        <p className="eyebrow">05 · Featured Work</p>
         <h2>
           Projects that <em>shipped</em>
         </h2>
-        <p>Real products — point-of-sale, commerce, AI and Web3 — not tutorial clones.</p>
+        <p>Real products · point-of-sale, commerce, AI and Web3 · not tutorial clones.</p>
         <div className="divider"></div>
       </div>
       <div className="proj-grid">

@@ -1,14 +1,11 @@
 "use client";
 import { useEffect } from "react";
 
-// Scroll-reveal engine — ports the preview's IntersectionObserver
-// logic exactly, with two safety nets so a section heading can NEVER
-// be left invisible:
-//  1. after 1100ms, anything already in the viewport is revealed
-//     (the preview's own fallback);
-//  2. after 4000ms, EVERYTHING is revealed, even if the observer
-//     never fired (the defect on the old Vercel site: headings whose
-//     word-drop never ran stayed hidden forever).
+// Scroll-reveal engine: ports the preview's IntersectionObserver
+// logic. Sections reveal ONLY when scrolled into view; there is no
+// timed reveal-all, so below-fold animations never fire on load.
+// One safety net remains: after 1100ms, anything already in the
+// viewport at that moment is revealed (the preview's own fallback).
 // Without JS at all, nothing is hidden in the first place: the
 // hidden start states in globals.css only apply under html.js.
 export default function RevealInit() {
@@ -45,12 +42,9 @@ export default function RevealInit() {
       });
     }, 1100);
 
-    const t2 = setTimeout(() => els().forEach(reveal), 4000);
-
     return () => {
       io.disconnect();
       clearTimeout(t1);
-      clearTimeout(t2);
     };
   }, []);
 

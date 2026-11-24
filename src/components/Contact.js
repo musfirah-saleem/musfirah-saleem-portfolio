@@ -2,14 +2,12 @@
 
 import { useRef, useState } from "react";
 
-const SUCCESS_NOTE = "Message sent ✓ — Musfirah will get it at musfi606@gmail.com.";
-const FAILURE_NOTE =
-  "Could not send right now — please email musfi606@gmail.com directly.";
+const SUCCESS_TOAST = "Message sent ✓";
+const FAILURE_TOAST =
+  "Could not send right now. Please email musfi606@gmail.com directly.";
 
 export default function Contact() {
   const [sending, setSending] = useState(false);
-  const [note, setNote] = useState("");
-  const [isErr, setIsErr] = useState(false);
   const [toast, setToast] = useState("");
   const [toastShow, setToastShow] = useState(false);
   const toastTimer = useRef(null);
@@ -31,8 +29,6 @@ export default function Contact() {
       description: data.get("description"),
     };
     setSending(true);
-    setIsErr(false);
-    setNote("Sending your message…");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -46,17 +42,12 @@ export default function Contact() {
         body = null;
       }
       if (!res.ok || (body && body.ok === false)) {
-        throw new Error((body && body.error) || FAILURE_NOTE);
+        throw new Error((body && body.error) || FAILURE_TOAST);
       }
-      setNote(SUCCESS_NOTE);
-      setIsErr(false);
       form.reset();
-      showToast("Message sent ✓", 2600);
-    } catch (err) {
-      const message = err && err.message ? err.message : FAILURE_NOTE;
-      setNote(message);
-      setIsErr(true);
-      showToast("Send failed — try the email link", 3200);
+      showToast(SUCCESS_TOAST, 4000);
+    } catch {
+      showToast(FAILURE_TOAST, 4000);
     } finally {
       setSending(false);
     }
@@ -66,7 +57,7 @@ export default function Contact() {
     <>
       <section id="contact">
         <div className="sec-head reveal">
-          <p className="eyebrow">06 — Contact</p>
+          <p className="eyebrow">06 · Contact</p>
           <h2 className="fallwords">
             <span className="fw" style={{ "--d": "0s" }}>
               Let&apos;s
@@ -84,7 +75,7 @@ export default function Contact() {
           <div>
             <h3>Open to remote MERN roles &amp; freelance projects</h3>
             <p>
-              Looking for a developer who can own a product end to end — frontend, API,
+              Looking for a developer who can own a product end to end, frontend, API,
               database and payments? Fill in the form and I&apos;ll get back to you.
               Based in Pakistan, working with teams worldwide.
             </p>
@@ -120,18 +111,10 @@ export default function Contact() {
                   {sending ? "Sending…" : "Send Message"}
                 </button>
               </div>
-              <p
-                className={isErr ? "cform-note err" : "cform-note"}
-                id="formNote"
-                role="status"
-                aria-live="polite"
-              >
-                {note}
-              </p>
             </form>
           </div>
           <div className="contact-list">
-            <a href="mailto:musfi606@gmail.com?subject=Portfolio%20%E2%80%94%20Let%27s%20talk">
+            <a href="mailto:musfi606@gmail.com?subject=Portfolio%20%C2%B7%20Let%27s%20talk">
               <span className="ic">✉</span> musfi606@gmail.com
             </a>
             <a

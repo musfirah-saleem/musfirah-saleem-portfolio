@@ -14,7 +14,7 @@ export default function Hero() {
   const [typed, setTyped] = useState("");
   const [shownLines, setShownLines] = useState(0);
 
-  /* Role typewriter — same state machine as the preview script:
+  /* Role typewriter: same state machine as the preview script:
      start after 1800ms; type 68ms/char, hold 1600ms at full word,
      delete 38ms/char, then move to the next role. */
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  /* Terminal lines — one by one, 600ms start, 750ms apart,
+  /* Terminal lines: one by one, 600ms start, 750ms apart,
      each fading in over .5s. */
   useEffect(() => {
     const timers = [0, 1, 2].map((i) =>
@@ -59,19 +59,19 @@ export default function Hero() {
   }, []);
 
   const terminalLines = [
-    <div key={0}>→ Musfirah Saleem — MERN Stack Developer</div>,
+    <div key={0}>→ Musfirah Saleem · MERN Stack Developer</div>,
     <div key={1}>
       → stack loaded: MongoDB · Express · React · Node{" "}
       <span className="ok">✓</span>
     </div>,
     <div key={2}>
-      → status: <span className="ok">open to work</span> — remote, worldwide
+      → status: <span className="ok">open to work</span> · remote, worldwide
     </div>,
   ];
 
   return (
     <div className="hero">
-      <p className="eyebrow">Available for remote roles · Lahore, Pakistan</p>
+      <p className="eyebrow">Available for remote roles</p>
       <div className="hero-grid">
         <div>
           <h1>
@@ -126,7 +126,7 @@ export default function Hero() {
               <span className="dot r"></span>
               <span className="dot y"></span>
               <span className="dot g"></span>
-              <span>developer.js — portfolio</span>
+              <span>developer.js · portfolio</span>
             </div>
             <pre>
               <code>
@@ -151,8 +151,6 @@ export default function Hero() {
                 {"  "}ai: <span className="tok-s">'LLM integrations'</span>,{"\n"}
                 {"  "}hireable: <span className="tok-n">true</span>,{"\n"}
                 {"}"};{"\n"}
-                {"\n"}
-                <span className="tok-c">{"// currently @ Egora, Lahore"}</span>
                 {"\n"}
                 <span className="tok-k">export default</span> developer;
               </code>

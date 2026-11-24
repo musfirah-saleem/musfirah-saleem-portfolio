@@ -12,14 +12,14 @@ export const profile = {
   github: "https://github.com/musfirah-saleem",
   linkedin: "https://www.linkedin.com/in/musfirah-saleem-768064280/",
   availability: "Available for remote work",
-  // Intro — verbatim from her CV
+  // Intro: verbatim from her CV
   intro:
     "I'm a MERN Stack Developer with around 4+ years of experience building full-stack web applications with React and Next.js frontends, Node.js/Express REST APIs, MongoDB/Mongoose data modelling, payment gateway and webhook integrations (X-Pay, Stripe), and AI/LLM-powered features across e-commerce, POS/reservation and AI applications.",
   about:
-    "I'm a MERN Stack Developer based in Lahore, Pakistan. At Egora I build MERN apps and a React/Redux POS platform — REST APIs, MongoDB/Mongoose data modelling, and payment gateway + webhook integrations. Before that I shipped frontend work at Fiction Developers, built Blockchain/Web3 interfaces at Ahom Limited in England, and worked on web projects at Briksen Technologies. I care about clean architecture, production-ready code, and products that actually solve real problems.",
+    "I'm a MERN Stack Developer based in Lahore, Pakistan. At Egora I build MERN apps and a React/Redux POS platform, REST APIs, MongoDB/Mongoose data modelling, and payment gateway + webhook integrations. Before that I shipped frontend work at Fiction Developers, built Blockchain/Web3 interfaces at Ahom Limited in England, and worked on web projects at Briksen Technologies. I care about clean architecture, production-ready code, and products that actually solve real problems.",
 };
 
-// Hero code block — typed out character by character
+// Hero code block: typed out character by character
 export const heroCodeLines = [
   "const developer = {",
   '  name: "Musfirah Saleem",',
@@ -76,7 +76,7 @@ export const education = {
   period: "2019 – 2023",
 };
 
-// MERN architecture — Client / API / Data tiers
+// MERN architecture: Client / API / Data tiers
 export const architecture = [
   {
     tier: "Client Tier",
@@ -91,7 +91,7 @@ export const architecture = [
     icon: "⬡",
     title: "Node.js + Express",
     description:
-      "REST APIs with Express — structured routes and controllers, JWT auth, validation and error-handling middleware, plus payment gateway and webhook endpoints.",
+      "REST APIs with Express, structured routes and controllers, JWT auth, validation and error-handling middleware, plus payment gateway and webhook endpoints.",
     tags: ["Node.js", "Express.js", "REST APIs", "JWT Auth", "X-Pay", "Stripe"],
   },
   {
@@ -99,13 +99,13 @@ export const architecture = [
     icon: "⬢",
     title: "MongoDB + Mongoose",
     description:
-      "MongoDB with Mongoose schemas as the primary store — indexes and aggregation pipelines tuned for performance. Relational stores where the model fits better.",
+      "MongoDB with Mongoose schemas as the primary store, indexes and aggregation pipelines tuned for performance. Relational stores where the model fits better.",
     tags: ["MongoDB", "Mongoose", "MySQL", "PostgreSQL", "Redis", "Supabase"],
   },
 ];
 
 // Skill levels shown as animated bars with a count-up percentage.
-// DEFAULT values — adjust the numbers here to change what the site shows.
+// DEFAULT values: adjust the numbers here to change what the site shows.
 export const skillLevels = [
   { skill: "React", level: 90 },
   { skill: "Next.js", level: 85 },
@@ -147,14 +147,14 @@ export const skillGroups = [
   },
 ];
 
-// Projects — only verified facts: name, link and the short description
+// Projects: only verified facts: name, link and the short description
 // given on the CV. No dates or roles invented.
 export const projects = [
   {
     name: "Chatroot",
     tag: "AI · Full Stack",
     description:
-      "WhatsApp AI Bot & CRM Platform — DevEarth Solutions. A WhatsApp bot with OpenAI plus a CRM platform.",
+      "WhatsApp AI Bot & CRM Platform · DevEarth Solutions. A WhatsApp bot with OpenAI plus a CRM platform.",
     live: "https://devearthsolutions.com/chatroot",
     code: null,
     featured: true,
@@ -163,7 +163,7 @@ export const projects = [
     name: "Egora POS",
     tag: "Full Stack · POS",
     description:
-      "Point-of-sale platform built with React/Redux, REST APIs and MongoDB — part of the Egora product suite.",
+      "Point-of-sale platform built with React/Redux, REST APIs and MongoDB, part of the Egora product suite.",
     live: "https://venue.egora.pk",
     code: null,
     featured: true,
@@ -172,7 +172,7 @@ export const projects = [
     name: "Egora Merchants",
     tag: "Full Stack · POS",
     description:
-      "Merchant portal for the Egora POS platform — onboarding and managing merchant businesses.",
+      "Merchant portal for the Egora POS platform, onboarding and managing merchant businesses.",
     live: "https://merchants.egora.pk",
     code: null,
     featured: true,
@@ -188,7 +188,7 @@ export const projects = [
   {
     name: "Planet Bickram",
     tag: "Web App",
-    description: "Web application — live project.",
+    description: "Web application · live project.",
     live: "https://planet-final-01.netlify.app",
     code: null,
     featured: false,
@@ -196,7 +196,7 @@ export const projects = [
   {
     name: "Block Factory",
     tag: "Web3 · Frontend",
-    description: "Web3 project — live project.",
+    description: "Web3 project · live project.",
     live: "https://block-factory.netlify.app",
     code: null,
     featured: false,
@@ -204,7 +204,7 @@ export const projects = [
   {
     name: "Fusion Store",
     tag: "E-commerce · Full Stack",
-    description: "E-commerce store — full-stack online store.",
+    description: "E-commerce store · full-stack online store.",
     live: "https://fusionstorebyms.netlify.app",
     code: null,
     featured: false,

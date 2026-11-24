@@ -2,13 +2,13 @@ export default function Architecture() {
   return (
     <section id="architecture">
       <div className="sec-head reveal">
-        <p className="eyebrow">02 — How I Build</p>
+        <p className="eyebrow">02 · How I Build</p>
         <h2 className="fallwords">
           <span className="fw" style={{"--d": "0s"}}>The</span>{" "}
           <span className="fw" style={{"--d": ".45s"}}>MERN</span>{" "}
           <span className="fw" style={{"--d": ".9s"}}><em>architecture</em></span>
         </h2>
-        <p>Every product I build follows the same clean three-tier shape — a fast client, a well-organised API layer, and data that stays consistent.</p>
+        <p>Every product I build follows the same clean three-tier shape: a fast client, a well-organised API layer, and data that stays consistent.</p>
         <div className="divider"></div>
       </div>
       <div className="arch">

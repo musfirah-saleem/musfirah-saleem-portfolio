@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 
 /**
- * Smooth scrolling with Lenis — one requestAnimationFrame loop,
+ * Smooth scrolling with Lenis: one requestAnimationFrame loop,
  * destroyed on unmount. Falls back to native scrolling if Lenis
  * is unavailable.
  */
