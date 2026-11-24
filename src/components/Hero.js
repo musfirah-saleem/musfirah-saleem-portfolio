@@ -138,7 +138,7 @@ export default function Hero() {
               if (e.animationName === "hangFall") setSwaying(true);
             }}
           >
-          <svg className="thread" aria-hidden="true" viewBox="0 0 10 40">
+          <svg className="thread" aria-hidden="true" viewBox="0 0 24 24">
             <defs>
               <linearGradient id="threadGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stopColor="#FF8AC2" />
@@ -146,12 +146,13 @@ export default function Hero() {
               </linearGradient>
             </defs>
             <path
-              d="M5 0 C 1 8, 9 14, 5 20 C 1 26, 9 32, 5 40"
+              d="M12 0 C 2 4, 22 8, 12 12 C 2 16, 22 20, 12 24"
               fill="none"
               stroke="url(#threadGrad)"
               strokeWidth="2"
               strokeLinecap="round"
             />
+            <circle cx="12" cy="22" r="4" fill="#ED2190" />
           </svg>
           <div className="codewin reveal in">
             <div className="codewin-head">

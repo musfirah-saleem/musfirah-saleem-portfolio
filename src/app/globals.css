@@ -47,7 +47,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-badge{width:46px;height:46px;border-radius:12px;background:var(--pink);display:flex;align-items:center;justify-content:center;white-space:nowrap;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:800;font-size:17px;letter-spacing:-.05em;color:#fff;box-shadow:0 8px 24px rgba(237,33,144,.35)}
-.logo-badge .logo-s{font-size:.8em;margin-left:-.04em;color:var(--cyan)}
+.logo-badge .logo-s{font-size:.9em;margin-left:-.04em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
 .nav-links{display:flex;gap:6px;flex-wrap:wrap}
 .nav-links a{text-decoration:none;font-weight:700;font-size:14px;color:var(--muted);padding:10px 14px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
@@ -244,20 +244,21 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;colo
 
 /* ---- hanging hero panel ----
    A visible WAVY THREAD ties the panel to its pin, so the catch reads
-   clearly: the pin sits fixed ~40px above the panel's top-right
+   clearly: the pin sits fixed ~24px above the panel's top-right
    corner, the thread spans exactly that gap (top end on the pin,
-   bottom end on the panel corner), and the whole thread + panel
-   group falls together from above. The fall accelerates (gravity),
+   bottom end overlapping the panel corner, with a small pink knot
+   at the contact point), and the whole thread + panel group falls
+   together from above. The fall accelerates (gravity),
    then stops ABRUPTLY the instant the thread meets the pin; the
    panel then swings in big, slow, clearly decaying pendulum arcs
    around the pin (-18deg, -3deg, -13deg, -5deg, -9deg) before
    settling at -7deg, and the gentle infinite sway loops forever
    after. The panel pivots around the thread's top end (the pin),
    so the corner never drifts off the pin. */
-.hang-wrap{position:relative}
-.hang{position:relative;padding-top:40px;transform-origin:100% 0;animation:hangFall 3.8s both}
+.hang-wrap{position:relative;margin-top:-16px}
+.hang{position:relative;padding-top:20px;transform-origin:100% 0;animation:hangFall 3.8s both}
 .hang.sway-on{animation:hangSway 6s ease-in-out infinite}
-.hang .thread{position:absolute;top:0;right:-5px;width:10px;height:40px;overflow:visible;filter:drop-shadow(0 0 4px rgba(237,33,144,.55))}
+.hang .thread{position:absolute;top:0;right:-12px;width:24px;height:24px;overflow:visible;filter:drop-shadow(0 0 4px rgba(237,33,144,.55))}
 @keyframes hangFall{
   0%{opacity:0;transform:translateY(-110vh) rotate(-7deg);animation-timing-function:cubic-bezier(.55,.06,.68,.19)}
   5%{opacity:1;animation-timing-function:cubic-bezier(.55,.06,.68,.19)}
