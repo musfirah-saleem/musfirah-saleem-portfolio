@@ -12,8 +12,10 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <div className="glow-pink"></div>
-      <div className="glow-cyan"></div>
+      <div className="glows" aria-hidden="true">
+        <div className="glow-pink"></div>
+        <div className="glow-cyan"></div>
+      </div>
       <Navbar />
       <main id="top" className="wrap">
         <Hero />

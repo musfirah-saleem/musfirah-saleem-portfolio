@@ -23,11 +23,12 @@
   --radius:18px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
 body{
   margin:0;background:var(--bg);color:var(--text);
   font-family:"Nunito",system-ui,sans-serif;
   overflow-x:hidden;
+  overflow-x:clip;
   -webkit-font-smoothing:antialiased;
 }
 ::selection{background:var(--pink);color:#fff}
@@ -37,7 +38,13 @@ h1,h2,h3,.display{font-family:"Baloo 2",cursive;line-height:1.05;margin:0}
 .mono{font-family:"IBM Plex Mono",monospace}
 img,svg{display:block;max-width:100%}
 
-/* glows like BGRM theme */
+/* glows like BGRM theme.
+   The glows are fixed 520-560px discs offset 120-140px past the
+   viewport edges; on phones that off-screen part created a
+   horizontal scrollbar (fixed elements count toward the document's
+   scrollable overflow). They now live inside a fixed, clipped
+   wrapper, so they can never escape the viewport, same visual. */
+.glows{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .glow-pink{position:fixed;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(237,33,144,.22),transparent 65%);top:-180px;right:-120px;pointer-events:none;z-index:0}
 .glow-cyan{position:fixed;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(103,201,214,.16),transparent 65%);bottom:-200px;left:-140px;pointer-events:none;z-index:0}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
@@ -62,6 +69,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
 .nav-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:12px;color:var(--text);font-size:20px;line-height:1;width:44px;height:44px;min-height:44px;align-items:center;justify-content:center;cursor:pointer}
 .nav-toggle:hover{border-color:var(--cyan);color:var(--cyan)}
 @media(max-width:760px){
+  /* .nav{padding:14px 0} overrode .wrap's horizontal padding (same
+     specificity, later rule), so on phones the logo sat flush at
+     x=0 and the hamburger flush at the right edge. Give the bar
+     side padding on small screens; desktop is untouched. */
+  .nav{padding:14px 18px}
   .nav-links{display:none}
   .nav-hire{display:none}
   .nav-toggle{display:inline-flex}
@@ -72,8 +84,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
   .nav-menu .nav-menu-hire:hover{color:#fff;background:var(--pink)}
 }
 
-/* HERO */
-.hero{padding:64px 0 30px}
+/* HERO: overflow-x:clip keeps the hanging panel's fall/swing
+   (up to -18deg around the top-right pin) from ever widening the
+   page on phones. */
+.hero{padding:64px 0 30px;overflow-x:clip}
 .eyebrow{font-family:"IBM Plex Mono";font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--pink),var(--cyan))}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start;margin-top:18px}
@@ -112,8 +126,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-f
 .marquee-track i{font-style:normal;color:var(--pink)}
 @keyframes scrollX{to{transform:translateX(-50%)}}
 
-/* sections */
-section{padding:72px 0 8px}
+/* sections: overflow-x:clip stops hidden below-fold reveal
+   elements (e.g. experience cards sitting at translateX(-56px)
+   until scrolled into view) from widening the page on phones. */
+section{padding:72px 0 8px;overflow-x:clip}
 .sec-head{max-width:680px}
 .sec-head h2{font-size:clamp(32px,5vw,46px);font-weight:800;margin-top:12px}
 .sec-head h2 em{font-style:normal;color:var(--pink)}
