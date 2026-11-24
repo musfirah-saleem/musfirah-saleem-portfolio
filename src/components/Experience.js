@@ -11,7 +11,7 @@ export default function Experience() {
             I&apos;ve
           </span>{" "}
           <span className="fw" style={{ "--d": ".8s" }}>
-            <em>worked</em>
+            <em className="cyan">worked</em>
           </span>
         </h2>
         <div className="divider"></div>

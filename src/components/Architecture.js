@@ -6,7 +6,7 @@ export default function Architecture() {
         <h2 className="fallwords">
           <span className="fw" style={{"--d": "0s"}}>The</span>{" "}
           <span className="fw" style={{"--d": ".45s"}}>MERN</span>{" "}
-          <span className="fw" style={{"--d": ".9s"}}><em>architecture</em></span>
+          <span className="fw" style={{"--d": ".9s"}}><em className="cyan">architecture</em></span>
         </h2>
         <p>Every product I build follows the same clean three-tier shape: a fast client, a well-organised API layer, and data that stays consistent.</p>
         <div className="divider"></div>

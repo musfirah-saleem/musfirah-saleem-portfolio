@@ -63,7 +63,7 @@ export default function Projects() {
       <div className="sec-head reveal">
         <p className="eyebrow">05 · Featured Work</p>
         <h2>
-          Projects that <em>shipped</em>
+          Projects that <em className="cyan">shipped</em>
         </h2>
         <p>Real products · point-of-sale, commerce, AI and Web3 · not tutorial clones.</p>
         <div className="divider"></div>

@@ -5,9 +5,9 @@ export default function About() {
         <p className="eyebrow">01 · About</p>
         <h2 className="fallwords">
           <span className="fw" style={{"--d": "0s"}}>Full-stack,</span>{" "}
-          <span className="fw" style={{"--d": ".35s"}}><em>end</em></span>{" "}
-          <span className="fw" style={{"--d": ".65s"}}><em>to</em></span>{" "}
-          <span className="fw" style={{"--d": ".95s"}}><em>end</em></span>
+          <span className="fw" style={{"--d": ".35s"}}><em className="cyan">end</em></span>{" "}
+          <span className="fw" style={{"--d": ".65s"}}><em className="cyan">to</em></span>{" "}
+          <span className="fw" style={{"--d": ".95s"}}><em className="cyan">end</em></span>
         </h2>
         <div className="divider"></div>
       </div>

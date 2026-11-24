@@ -87,7 +87,7 @@ export default function Skills() {
             Skills
           </span>{" "}
           <span className="fw" style={{ "--d": ".45s" }}>
-            <em>breakdown</em>
+            <em className="cyan">breakdown</em>
           </span>
         </h2>
         <div className="divider"></div>
